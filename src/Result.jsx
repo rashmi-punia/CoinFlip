@@ -1,0 +1,20 @@
+import React from 'react'
+
+const Result = () => {
+  return (
+    <div className='outline-dashed *:py-1 text-center outline-1 mx-auto max-w-3xl rounded p-4 my-10'>
+    <p className='underline py-2'>Head</p>
+      <h3 className='text-3xl font-semibold '>
+       Congrats You WIN !
+      </h3>
+      <p className='text-green-400'>
+        Current Tokens : 
+        <strong className='ml-6'> $
+ 200
+        </strong>
+      </p>
+    </div>
+  )
+}
+
+export default Result
