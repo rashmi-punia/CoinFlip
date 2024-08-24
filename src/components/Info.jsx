@@ -91,8 +91,8 @@ const Info = ({ contract, connected }) => {
           transition: "all 0.3s ease",
           "&:hover": {
             bgcolor: "success.main", 
-            color: "white", // changes text color on hover
-            border: "none", // removes border on hover
+            color: "white", 
+            border: "none", 
           },
         }}
       >

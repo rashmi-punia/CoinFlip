@@ -1,36 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import Header from './Header'
-import Info from './Info';
-import Result from './Result';
-import { motion } from 'framer-motion';
-import { ethers } from 'ethers';
+import React, { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Info from "./components/Info";
+import Result from "./components/Result";
+import { motion } from "framer-motion";
+import { ethers } from "ethers";
 import CoinFlipABI from "./CoinFlipABI.json";
 
-
 const App = () => {
-   const [contract, setContract] = useState(null);
-   const [connected, setConnected] = useState(false);
-     const [account, setAccount] = useState("");
+  const [contract, setContract] = useState(null);
+  const [connected, setConnected] = useState(false);
+  const [account, setAccount] = useState("");
 
+  useEffect(() => {
+    const setupContract = async () => {
+      if (window.ethereum && account) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const contractAddress = "0xd9145CCE52D386f254917e481eB44e9943F39138";
+        const newContract = new ethers.Contract(
+          contractAddress,
+          CoinFlipABI,
+          signer
+        );
+        setContract(newContract);
+        setConnected(true);
+      }
+    };
 
-    useEffect(() => {
-      const setupContract = async () => {
-        if (window.ethereum && account) {
-          const provider = new ethers.providers.Web3Provider(window.ethereum);
-          const signer = provider.getSigner();
-          const contractAddress = "0xd9145CCE52D386f254917e481eB44e9943F39138";
-          const newContract = new ethers.Contract(
-            contractAddress,
-            CoinFlipABI,
-            signer
-          );
-          setContract(newContract);
-          setConnected(true);
-        }
-      };
-
-      setupContract();
-    }, [account]);
+    setupContract();
+  }, [account]);
 
   return (
     <div className="bg-black/95 relative overflow-hidden h-screen text-slate-100">
@@ -47,7 +45,7 @@ const App = () => {
           opacity: 1,
           transition: {
             duration: 1,
-            stiffness:60,
+            stiffness: 60,
             type: "spring",
           },
         }}
@@ -71,6 +69,6 @@ const App = () => {
       <Result />
     </div>
   );
-}
+};
 
-export default App
+export default App;
