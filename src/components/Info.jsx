@@ -44,14 +44,14 @@ const Info = ({ contract, connected }) => {
 
   return (
     <div className="mt-12 relative text-center *:mb-8 sm:max-w-3xl mx-12  sm:mx-auto">
-      <div className="flex flex-col gap-6 sm:flex-row items-center justify-between">
+      <div className="flex flex-col gap-8 sm:flex-row items-center justify-center">
         <input
           value={betAmount}
           onChange={(e) => setBetAmount(e.target.value)}
           type="text"
           required
           placeholder="Enter your Bet Amount in ETH"
-          className="py-3 pr-6 pl-1 h-fit rounded-sm text-black outline-2 focus:outline outline-purple-600"
+          className="py-3 pr-6 pl-1 h-fit w-full sm:w-80 rounded-sm text-black outline-2 focus:outline outline-purple-600"
         />
 
         <div className="flex gap-6">

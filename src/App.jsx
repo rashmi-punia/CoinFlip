@@ -57,7 +57,7 @@ const App = () => {
         <h2 className="font-bold tracking-wide text-5xl sm:text-7xl max-w-4xl mx-auto">
           Flip & Win: Double Your Tokens!
         </h2>
-        <h3 className="text-md text-gray-400">
+        <h3 className="sm:text-md text-sm text-gray-400">
           Choose your side, place your bet, and
           <strong className="text-slate-100">
             {" "}

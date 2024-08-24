@@ -50,7 +50,7 @@ const Header = ({ account, setAccount }) => {
       }}
       className="py-3 relative sm:px-5 lg:px-20 mx-auto"
     >
-      <div className="bg-gray-800 flex items-center justify-between rounded-full py-3 sm:px-10 px-5 mx-10 text-slate-200">
+      <div className="bg-gray-800 flex items-center justify-between rounded-full py-3 sm:px-10 px-4 sm:mx-10 mx-2 text-slate-200">
         <div>
           <LiaBitcoin className="size-9" />
         </div>
