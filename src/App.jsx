@@ -10,6 +10,8 @@ const App = () => {
   const [contract, setContract] = useState(null);
   const [connected, setConnected] = useState(false);
   const [account, setAccount] = useState("");
+    const [result, setResult] = useState("");
+
 
   useEffect(() => {
     const setupContract = async () => {
@@ -31,7 +33,7 @@ const App = () => {
   }, [account]);
 
   return (
-    <div className="bg-black/95 relative overflow-x-hidden text-slate-100">
+    <div className="bg-black/95 relative overflow-x-hidden text-slate-100 h-full">
       <div className="absolute w-64 h-64 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-full opacity-70 -top-20 -left-20 filter blur-xl"></div>
       <motion.div
         initial={{
@@ -49,9 +51,9 @@ const App = () => {
             type: "spring",
           },
         }}
-        className="absolute w-72 h-72 bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500 rounded-full opacity-70 -bottom-20 -right-20 filter blur-xl"
+        className="absolute w-72 h-72 bg-gradient-to-r from-blue-500 via-green-500 to-yellow-500 rounded-full opacity-30 -bottom-20 sm:-right-20 -right-44 filter blur-xl"
       ></motion.div>
-      <motion.div className="absolute w-48 h-48 bg-gradient-to-t from-indigo-500 via-purple-500 to-pink-500 rounded-full opacity-50 top-1/3 left-1/3 filter blur-lg"></motion.div>
+      <div className="absolute w-48 h-48 bg-gradient-to-t from-indigo-500 via-purple-500 to-pink-500 rounded-full opacity-60 top-1/3 left-1/3 filter blur-lg"></div>
       <Header account={account} setAccount={setAccount} />
       <div className="text-center relative sm:*:my-3 mx-6 mt-12">
         <h2 className="font-bold tracking-wide text-5xl sm:text-7xl max-w-4xl mx-auto">
@@ -65,8 +67,8 @@ const App = () => {
           </strong>
         </h3>
       </div>
-      <Info contract={contract} connected={connected} />
-      <Result />
+      <Info contract={contract} connected={connected} setResult={setResult} />
+      <Result result={result}/>
     </div>
   );
 };

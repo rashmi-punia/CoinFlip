@@ -3,12 +3,10 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { ethers } from "ethers";
 
-const Info = ({ contract, connected }) => {
+const Info = ({ contract, connected,setResult }) => {
   const [selectedSide, setSelectedSide] = useState("Head");
   const [betAmount, setBetAmount] = useState("");
-  const [result, setResult] = useState("");
 
-  console.log(result);
 
   useEffect(() => {
     if (contract) {
@@ -25,20 +23,30 @@ const Info = ({ contract, connected }) => {
   }, [contract]);
 
 
-  const flipCoin = async (guess) => {
-    if (!connected) return;
+  // const flipCoin = async (guess) => {
+  //   if (!connected) return;
 
-    try {
-      const tx = await contract.flipCoin(guess, {
-        value: ethers.utils.parseEther(betAmount),
-      });
-      await tx.wait(); 
-      contract.on("CoinFlipped", (player, won, amount) => {
-        setResult(won ? "You won!" : "You lost!");
-      });
-    } catch (error) {
-      console.error("Error flipping coin:", error);
-      setResult("Transaction failed. Please try again.");
+  //   try {
+  //     const tx = await contract.flipCoin(guess, {
+  //       value: ethers.utils.parseEther(betAmount),
+  //     });
+  //     await tx.wait(); 
+  //     contract.on("CoinFlipped", (player, won, amount) => {
+  //       setResult(won ? "You won!" : "You lost!");
+  //     });
+  //   } catch (error) {
+  //     console.error("Error flipping coin:", error);
+  //     setResult("Transaction failed. Please try again.");
+  //   }
+  // };
+
+  const flipCoin = (guess) => {
+    const randomOutcome = Math.random() < 0.5; // true for heads, false for tails
+
+    if (guess === randomOutcome) {
+      setResult("You won!");
+    } else {
+      setResult("You lost!");
     }
   };
 
@@ -58,7 +66,6 @@ const Info = ({ contract, connected }) => {
           <button
             onClick={() => {
               setSelectedSide("Head");
-              flipCoin(true);
             }}
             className={`${
               selectedSide === "Head"
@@ -71,7 +78,6 @@ const Info = ({ contract, connected }) => {
           <button
             onClick={() => {
               setSelectedSide("Tail");
-              flipCoin(false);
             }}
             className={`${
               selectedSide === "Tail"
@@ -87,23 +93,18 @@ const Info = ({ contract, connected }) => {
       <Button
         variant="outlined"
         color="success"
+        onClick={() => flipCoin(selectedSide === "Head")}
         sx={{
           transition: "all 0.3s ease",
           "&:hover": {
-            bgcolor: "success.main", 
-            color: "white", 
-            border: "none", 
+            bgcolor: "success.main",
+            color: "white",
+            border: "none",
           },
         }}
       >
         Flip the Coin
       </Button>
-
-      {result && (
-        <div className="mt-8">
-          <p className="text-2xl font-bold text-purple-600">{result}</p>
-        </div>
-      )}
     </div>
   );
 };
