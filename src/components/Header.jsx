@@ -55,16 +55,9 @@ const Header = ({ account, setAccount }) => {
           <LiaBitcoin className="size-9" />
         </div>
 
-        {account && <p>Connected : {account}</p>}
+        {account && <p className="hidden sm:block">Connected : {account}</p>}
 
-        {/* <Button
-          variant="contained"
-          color="secondary"
-          size="small"
-          onClick={connectWallet}
-        >
-          Connect Wallet
-        </Button> */}
+       
         <WalletConnect account={account} setAccount={setAccount} />
       </div>
     </motion.div>

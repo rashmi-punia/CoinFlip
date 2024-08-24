@@ -53,8 +53,8 @@ const App = () => {
       ></motion.div>
       <motion.div className="absolute w-48 h-48 bg-gradient-to-t from-indigo-500 via-purple-500 to-pink-500 rounded-full opacity-50 top-1/3 left-1/3 filter blur-lg"></motion.div>
       <Header account={account} setAccount={setAccount} />
-      <div className="text-center relative *:my-3 mt-12">
-        <h2 className="font-bold tracking-wide text-7xl max-w-4xl mx-auto">
+      <div className="text-center relative sm:*:my-3 mx-6 mt-12">
+        <h2 className="font-bold tracking-wide text-5xl sm:text-7xl max-w-4xl mx-auto">
           Flip & Win: Double Your Tokens!
         </h2>
         <h3 className="text-md text-gray-400">

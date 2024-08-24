@@ -2,7 +2,7 @@ import React from 'react'
 
 const Result = () => {
   return (
-    <div className='outline-dashed *:py-1 text-center outline-1 mx-auto max-w-3xl rounded p-4 my-10'>
+    <div className='outline-dashed relative *:py-1 text-center outline-1 sm:mx-auto sm:max-w-3xl mx-12 rounded p-4 my-10'>
     <p className='underline py-2'>Head</p>
       <h3 className='text-3xl font-semibold '>
        Congrats You WIN !

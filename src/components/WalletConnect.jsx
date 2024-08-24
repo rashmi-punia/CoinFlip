@@ -29,7 +29,7 @@ const WalletConnect = ({account,setAccount}) => {
   return (
     <div className="flex items-center justify-center">
    
-        <Button color="secondary" variant="contained"
+        <Button size="small" color="secondary" variant="contained"
           onClick={connectWallet}
           className="bg-blue-500 text-white p-2 rounded"
         >

@@ -43,8 +43,8 @@ const Info = ({ contract, connected }) => {
   };
 
   return (
-    <div className="mt-12 relative text-center *:mb-8 sm:max-w-3xl max-w-xl mx-auto">
-      <div className="flex items-center justify-between">
+    <div className="mt-12 relative text-center *:mb-8 sm:max-w-3xl mx-12  sm:mx-auto">
+      <div className="flex flex-col gap-6 sm:flex-row items-center justify-between">
         <input
           value={betAmount}
           onChange={(e) => setBetAmount(e.target.value)}
