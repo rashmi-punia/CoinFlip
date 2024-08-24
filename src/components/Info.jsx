@@ -3,10 +3,13 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import { ethers } from "ethers";
 
-const Info = ({ contract, connected,setResult }) => {
+const Info = ({ contract, account,setResult }) => {
   const [selectedSide, setSelectedSide] = useState("Head");
   const [betAmount, setBetAmount] = useState("");
+  const [err,setErr] = useState("")
 
+  console.log(contract,account);
+  
 
   useEffect(() => {
     if (contract) {
@@ -24,7 +27,7 @@ const Info = ({ contract, connected,setResult }) => {
 
 
   // const flipCoin = async (guess) => {
-  //   if (!connected) return;
+  //   if (!account) return;
 
   //   try {
   //     const tx = await contract.flipCoin(guess, {
@@ -41,6 +44,15 @@ const Info = ({ contract, connected,setResult }) => {
   // };
 
   const flipCoin = (guess) => {
+    if(!betAmount){
+setErr("Enter Bet Amount!")
+return;
+    }
+    if(!account){
+      setErr("First Connect Your Wallet")
+      return;
+    }
+    setErr("")
     const randomOutcome = Math.random() < 0.5; // true for heads, false for tails
 
     if (guess === randomOutcome) {
@@ -89,6 +101,8 @@ const Info = ({ contract, connected,setResult }) => {
           </button>
         </div>
       </div>
+
+      {err && <p className="text-red-400">{err}</p>}
 
       <Button
         variant="outlined"

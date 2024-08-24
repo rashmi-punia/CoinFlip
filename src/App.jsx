@@ -33,7 +33,9 @@ const App = () => {
   }, [account]);
 
   return (
-    <div className="bg-black/95 relative overflow-x-hidden text-slate-100 h-full">
+    <>
+
+    <div className="bg-black/95 relative overflow-x-hidden text-slate-100 min-h-screen">
       <div className="absolute w-64 h-64 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-full opacity-70 -top-20 -left-20 filter blur-xl"></div>
       <motion.div
         initial={{
@@ -67,9 +69,10 @@ const App = () => {
           </strong>
         </h3>
       </div>
-      <Info contract={contract} connected={connected} setResult={setResult} />
+      <Info contract={contract} account={account} setResult={setResult} />
       <Result result={result}/>
     </div>
+    </>
   );
 };
 
