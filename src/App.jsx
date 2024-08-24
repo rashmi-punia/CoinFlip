@@ -31,7 +31,7 @@ const App = () => {
   }, [account]);
 
   return (
-    <div className="bg-black/95 relative overflow-hidden h-screen text-slate-100">
+    <div className="bg-black/95 relative overflow-x-hidden text-slate-100">
       <div className="absolute w-64 h-64 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-full opacity-70 -top-20 -left-20 filter blur-xl"></div>
       <motion.div
         initial={{
