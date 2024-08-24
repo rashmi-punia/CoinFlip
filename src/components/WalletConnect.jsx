@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import React, { useState, useEffect } from "react";
 
 const WalletConnect = ({account,setAccount}) => {
@@ -28,12 +29,12 @@ const WalletConnect = ({account,setAccount}) => {
   return (
     <div className="flex items-center justify-center">
    
-        <button
+        <Button color="secondary" variant="contained"
           onClick={connectWallet}
           className="bg-blue-500 text-white p-2 rounded"
         >
           Connect Wallet
-        </button>
+        </Button>
       
     </div>
   );
